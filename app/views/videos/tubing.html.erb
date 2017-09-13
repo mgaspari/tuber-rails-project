@@ -14,11 +14,11 @@
   </div>
   <div class="scrolling_box">
     <div class="time_list_box" id="script_list">
-      <ul>
+      <ol>
         <% @video.transcript.each do |text| %>
           <li class="searchable" style="display:none"><a href="https://www.youtube.com/embed/<%=@end_url%>?start=<%=text[0]%>&amp;autoplay=1" target="iframe" ><%=text[1]%></a></li>
         <% end %>
-      </ul>
+      </ol>
       <script type="text/javascript">
       function searchFunction() {
         $(".searchable")
