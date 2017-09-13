@@ -110,7 +110,15 @@ li {
       flex-direction: row;
     }
 
-        .search_term_box input[type=text]{
+      .search_term_box form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+      }
+
+        .search_term_box form input[type=text]{
           width: 79%;
           height: 27px;
           border-radius: 8px;
@@ -118,7 +126,7 @@ li {
           font-size: 16px;
         }
 
-        .search_term_box button{
+        .search_term_box form button{
           width: 20%;
           height: 30px;
           border-radius: 8px;

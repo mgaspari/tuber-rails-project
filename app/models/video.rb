@@ -13,7 +13,6 @@ class Video < ActiveRecord::Base
 
   def parse_transcript
     @transcript.split("\n").join(" ").scan(/(?<time>\d?\d?\d+\d+\:\d+\d+) (?<words>\D+)/)
-
   end
 
   # def scraper(link)

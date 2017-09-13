@@ -7,12 +7,26 @@
 </div>
 <div class="term_box">
   <div class="search_term_box">
-    <input type="text" placeholder="Search terms here......">
-    <button type="button" name="button">Search!</button>
+    <form name="searchBox">
+      <input type="text" name="keyword" placeholder="Search terms here......">
+      <button type="button" onClick="searchFunction()">Search!</button>
+    </form>
   </div>
   <div class="scrolling_box">
-    <div class="time_list_box">
-      
+    <div class="time_list_box" id="script_list">
+      <ul>
+        <% @video.transcript.each do |text| %>
+          <li class="searchable" style="display:none"><a href="https://www.youtube.com/embed/<%=@end_url%>?start=<%=text[0]%>&amp;autoplay=1" target="iframe" ><%=text[1]%></a></li>
+        <% end %>
+      </ul>
+      <script type="text/javascript">
+      function searchFunction() {
+        $(".searchable")
+            .hide()
+            .filter(":contains('" + $("input[name='keyword']").val() + "')")
+            .show();
+      }
+      </script>
     </div>
   </div>
 </div>
