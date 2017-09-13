@@ -1,0 +1,11 @@
+  <div class="body_container">
+    <div class="iframe_box">
+      <img src="../welcome_logo.png">
+    </div>
+    <div class="search_box">
+      <%= form_tag({:controller => "videos", :action => "tubing"}, :method => "get") do %>
+      <%= text_field_tag :link, nil, placeholder: 'Enter youtube url...' %>
+      <%= submit_tag "Search!"%>
+      <%end%>
+    </div>
+  </div>

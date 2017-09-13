@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 
 
-class User < ApplicationRecord
+class User < ActiveRecord::Base
   has_many :groups
   has_many :groups_videos, through: :groups
   has_many :videos, through: :groups_videos

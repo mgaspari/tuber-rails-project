@@ -1,4 +1,4 @@
-class Group < ApplicationRecord
+class Group <  ActiveRecord::Base
   belongs_to :user
   has_many :groups_videos
   has_many :videos, through: :groups_videos

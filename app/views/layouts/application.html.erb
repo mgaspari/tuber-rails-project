@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <div class="header_container">
+        <div class="logo_box">
+          <img src="../logo2.png">
+        </div>
+        <div class="logout_login_signup_box">
+            <button>Signup</button>
+            <button>Login</button>
+        </div>
+      </div>
+
+
+      <%= yield %>
+
+      
+    </div>
   </body>
 </html>
