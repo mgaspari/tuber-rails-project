@@ -15,11 +15,15 @@
     <div class="wrapper">
       <div class="header_container">
         <div class="logo_box">
-          <img src="../logo2.png">
+          <a href="/videos"><img src="../logo2.png"></a>
         </div>
         <div class="logout_login_signup_box">
-            <button>Signup</button>
-            <button>Login</button>
+          <% if session[:id] %>
+            <%= button_to "Logout", logout_path%>
+          <% else %>
+          <button><%= link_to "Signup", signup_path%></button>
+          <button><%= link_to "Signin", users_path%></button>
+          <% end %>
         </div>
       </div>
 
