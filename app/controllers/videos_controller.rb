@@ -3,6 +3,16 @@ class VideosController < ApplicationController
 
   end
 
+  # def create
+  #   @video = Video.new(video_params)
+  #   if @video.save
+  #     render :tubing
+  #   else
+  #     #need to add message to user
+  #     render :tubing
+  #   end
+  # end
+
   def tubing
     @video = Video.new
     if params[:link]
@@ -15,10 +25,11 @@ class VideosController < ApplicationController
           [(split_time[0].to_i*360+split_time[1].to_i*60+split_time[2].to_i), text[1]]
         end
       end
-      @end_url = params[:link].split("v=")[1]
+      @end_url = params[:link].split("v=")[1].split("&")[0]
     else
       redirect_to videos_path
     end
+
   end
 
   def show
