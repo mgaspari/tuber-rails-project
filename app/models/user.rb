@@ -11,6 +11,13 @@ class User < ActiveRecord::Base
   has_many :videos_terms, through: :videos
   has_many :terms, through: :videos_terms
 
+  has_secure_password
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :password, presence: true
+  validates :username, presence: true
+  validates :username, uniqueness: true
+
 
   def scraper
     page = Nokogiri::HTML(open("https://www.youtube.com/watch?v=FOt1dwWRLGk"))

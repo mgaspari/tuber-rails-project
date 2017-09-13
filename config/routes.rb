@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   resources :users
   resources :videos
 
-  get "/tubing", to: 'videos#tubing' 
+  get "/tubing", to: 'videos#tubing'
+
+  get '/signup', to: 'users#new'
+  post '/signin', to: 'sessions#create'
+  post '/logout', to: 'sessions#destroy'
 end

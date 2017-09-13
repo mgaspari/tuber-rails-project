@@ -1,0 +1,6 @@
+<h1>Welcome to Tuber!</h1>
+<h1>Login</h1>
+<%=form_tag "/signin", method: 'POST'%>
+  Username: <%=text_field_tag name="user[username]"%><br>
+  Password: <%=password_field_tag name="user[password]"%><br>
+<%=submit_tag "Sign In"%><br>

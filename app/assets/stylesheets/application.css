@@ -46,6 +46,10 @@
        align-items: center;
      }
 
+     .logo_box a{
+       background-color: inherit;
+     }
+
      .logo_box img {
        width: 55%;
        height: 80%;
@@ -59,11 +63,12 @@
        align-items: center;
      }
 
-     .logout_login_signup_box button{
+     .logout_login_signup_box button, input[type=submit], a{
        padding: 7px 12px;
        font-size: 15px;
        color: white;
        border-radius: 10px;
        border-color: white;
        background-color: #ff007b;
+       text-decoration: none;
      }
