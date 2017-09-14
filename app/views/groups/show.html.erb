@@ -1,0 +1,8 @@
+<h1><%=@group.name%></h1>
+
+<%@notes.each do |note|%>
+  <%=link_to "#{note.title}", note%>
+  <%=note.content%>
+<%end%>
+
+#should put logic in if the site does not go through
