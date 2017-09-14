@@ -35,8 +35,8 @@
           <% if session[:id] %>
             <%= button_to "Logout", logout_path%>
           <% else %>
-          <button><%= link_to "Signup", signup_path%></button>
-          <button><%= link_to "Signin", users_path%></button>
+            <button><%= link_to "Signup", signup_path%></button>
+            <button><%= link_to "Signin", users_path%></button>
           <% end %>
         </div>
       </div>

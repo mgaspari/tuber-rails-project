@@ -31,7 +31,7 @@
 
  .header_container {
    display: grid;
-   background-color: #61F73F;
+   background-color: #D35400;
    grid-column: 1 / 11;
    grid-row: 1;
    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
@@ -68,7 +68,6 @@
        font-size: 15px;
        color: white;
        border-radius: 10px;
-       border-color: white;
-       background-color: #ff007b;
+       background-color: #717D7E;
        text-decoration: none;
      }

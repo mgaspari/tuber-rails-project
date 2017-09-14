@@ -15,5 +15,10 @@ Rails.application.routes.draw do
   get '/notes/new/:time', to: 'notes#new'
 
   post '/notes', to: 'notes#create'
+
+
+
+
+
+  get '/static', to: 'groups#static'
 end
- 

@@ -16,8 +16,8 @@ class VideosController < ApplicationController
   def tubing
     @video = Video.new
     @note = Note.new
-    if params[:link]
-      @video.get_data(params[:link])
+    if session[:vid_url]
+      @video.get_data(session[:vid_url])
       @video.transcript = @video.parse_transcript.map do |text|
         split_time = text[0].split(":")
         if split_time.length == 2
@@ -26,7 +26,7 @@ class VideosController < ApplicationController
           [(split_time[0].to_i*360+split_time[1].to_i*60+split_time[2].to_i), text[1]]
         end
       end
-      @end_url = params[:link].split("v=")[1].split("&")[0]
+      @end_url = session[:vid_url].split("v=")[1].split("&")[0]
     else
       redirect_to videos_path
     end
@@ -34,12 +34,12 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.create(link: params[:link], name: params[:name])
+    @video = Video.create(link: params[:link])
     if @video
       session[:vid_id] = @video.id
+      session[:vid_url] = params[:link]
     end
-    byebug
-    render 'blank'
+    redirect_to tubing_path
   end
 
   private

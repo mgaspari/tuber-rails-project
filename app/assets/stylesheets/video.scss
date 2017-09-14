@@ -59,7 +59,6 @@
 
 
 .video_box {
-  border: 3px dashed blue;
   grid-column: 1 / 7;
   grid-row: 2 / 11;
   display: flex;
@@ -69,7 +68,6 @@
 }
 
     .iframe_box {
-      border: 1px solid red;
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -179,6 +177,12 @@
       width: 480px;
       height: 390px;
       background-color: #61F73F;
+      border-radius: 8px;
+    }
+
+    .notes_list iframe {
+      border-color: white;
+      border-radius: 8px;
     }
 
     .note_box {
@@ -191,23 +195,64 @@
     .note_box form {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       flex-direction: column;
     }
 
-    .note_box form #note_time {
-      height: 40px;
-      width: 70px;
-      color: #61F73F;
-    }
+      .note_box form .note_name_select {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: row;
+      }
 
-    .note_box form #note_text {
-      height: 90px;
-      width: 350px;
-      color: #61F73F;
-    }
+        .note_box form .note_name_select input[type=text]{
+          width: 300px;
+          height: 27px;
+          border-radius: 8px;
+          color: #61F73F;
+          font-size: 16px;
+        }
+
+        .note_box form .note_name_select #group_id {
+          width: 160px;
+          height: 29px;
+          border-radius: 8px;
+          color: #ff007b;
+          font-size: 16px;
+        }
+
+        .note_box form .time_content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+        }
+
+          .note_box form .time_content #note_time{
+            width: 60px;
+            height: 50px;
+            text-align: center;
+            color: black;
+            font-size: 20px;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            background-color: #EEE9EE;
+          }
+
+          .note_box form .time_content #note_text{
+            width: 420px;
+            height: 50px;
+            color: black;
+            font-size: 20px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            background-color: #EEE9EE;
+          }
 
     .note_box form input[type=submit] {
+      display: block;
+      float: right;
       height: 50px;
       width: 80px;
     }

@@ -1,9 +1,9 @@
   <div class="body_container">
     <div class="iframe_box">
-      <img src="../welcome_logo.png">
+      <img src="../logo9.png">
     </div>
     <div class="search_box">
-      <%= form_tag({:controller => "videos", :action => "tubing"}, :method => "get") do %>
+      <%= form_tag({:controller => "videos", :action => "create"}, :method => "post") do %>
       <%= text_field_tag :link, nil, placeholder: 'Enter youtube url...' %>
       <%= submit_tag "Search!"%>
       <%end%>
