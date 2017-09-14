@@ -55,6 +55,32 @@
        height: 80%;
      }
 
+     .search_bar {
+       grid-column: 1 / 7;
+       grid-row: 1;
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+     }
+
+       .search_bar [type=text] {
+          width: 130px;
+          height: 20px;
+          -webkit-transition: width 0.4s ease-in-out;
+          transition: width 0.4s ease-in-out;
+      }
+         .search_bar [type=text]:focus {
+              width: 200%;
+          }
+
+          #search_bar_enter {
+            position: absolute;
+            top: -999px;
+            left: -999px;
+            width: 0px;
+            height: 0px;
+          }
+
      .logout_login_signup_box {
        grid-column: 9 / 11;
        grid-row: 1;

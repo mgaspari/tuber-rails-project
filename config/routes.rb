@@ -16,9 +16,7 @@ Rails.application.routes.draw do
 
   post '/notes', to: 'notes#create'
 
-
-
-
-
   get '/static', to: 'groups#static'
+
+  post '/search_users', to: 'users#search'
 end

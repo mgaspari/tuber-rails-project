@@ -1,8 +1,10 @@
 <div class="video_box">
     <div class="iframe_box">
       <div class="searchVid">
-        <input type="text" name="#" value="<%= params[:link] %>">
-        <button type="button" name="button">Start!</button>
+        <%= form_tag({:controller => "videos", :action => "tubing"}, :method => "get") do %>
+        <%= text_field_tag :link, nil, value: params[:link] %>
+        <%= submit_tag "Search!"%>
+        <%end%>
       </div>
       <iframe name="iframe1" width="560" height="315" src="https://www.youtube.com/embed/<%=@end_url%>" frameborder="0" allowfullscreen></iframe>
     </div>

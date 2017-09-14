@@ -1,7 +1,9 @@
-<h1>Welcome to Tuber!</h1>
-<h1>Login</h1>
+<div class = "new_form">
+<h1 id = "create_tag">Welcome to Tuber!</h1>
+<h1 id = "create_tag">Login</h1>
 <%=form_tag "/signin", method: 'POST'%>
-  Username: <%=text_field_tag name="user[username]"%><br>
-  Password: <%=password_field_tag name="user[password]"%><br>
+  <%=text_field_tag name="user[username]", nil, placeholder: "Username" %><br>
+  <%=password_field_tag name="user[password]", nil, placeholder: "Password"%><br>
 <%=submit_tag "Sign In"%><br>
-<%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<div id="facebook"><%= link_to('Log in with Facebook!', '/auth/facebook') %></div>
+</div>

@@ -1,8 +1,14 @@
+
+<div class = "new_form">
+  <h1 id = "create_tag">Create An Account</h1>
 <%=form_for @user do |t|%>
-First Name: <%=t.text_field :first_name%><br>
-Last Name: <%=t.text_field :last_name%><br>
-Username: <%=t.text_field :username%><br>
-Password: <%=t.password_field :password%><br>
-Password Confirmation: <%=t.password_field :password_confirmation%><br>
+<%=t.text_field :first_name, placeholder: "First Name:" %><br>
+<%=t.text_field :last_name, placeholder: "Last Name: "%><br>
+<%=t.text_field :username, placeholder: "Username: "%><br>
+<%=t.password_field :password, placeholder: "Password: "%><br>
+<%=t.password_field :password_confirmation, placeholder: "Password Confirmation: "%><br>
 <%=t.submit%>
 <%end%>
+<div id="facebook"><%= link_to('Signup with Facebook!', '/auth/facebook') %></div>
+
+ </div>
