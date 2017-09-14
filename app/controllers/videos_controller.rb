@@ -5,6 +5,7 @@ class VideosController < ApplicationController
 
   def tubing
     @video = Video.new
+    @note = Note.new
     if params[:link]
       @video.get_data(params[:link])
       @video.transcript = @video.parse_transcript.map do |text|
@@ -21,9 +22,13 @@ class VideosController < ApplicationController
     end
   end
 
-  def show
-
-
+  def create
+    @video = Video.create(link: params[:link], name: params[:name])
+    if @video
+      session[:vid_id] = @video.id
+    end
+    byebug
+    render 'blank'
   end
 
   private

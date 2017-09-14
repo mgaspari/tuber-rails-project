@@ -1,0 +1,12 @@
+<% @group = Group.new %>
+<%= form_for(@group) do |f| %>
+  <%= f.text_field :name, placeholder: "New group or select below..."%><br>
+  <div onclick="filterGroups()" id="search_select_group"><br>
+    <select id="group_list" multiple="true" name="group_id[]">
+      <%= Group.all.each do |group| %>
+        <option value="<%= group.id %>" name="<%= group.id %>"><%= group.groupname %></option>
+      <% end %>
+    </select>
+  </div>
+  <%= f.submit %>
+<% end %>

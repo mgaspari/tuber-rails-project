@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
     @user = User.new
+    @note = Note.new
   end
   def new
     @user = User.new

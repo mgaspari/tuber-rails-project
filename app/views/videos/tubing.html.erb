@@ -1,32 +1,56 @@
 <div class="video_box">
-    <iframe name="iframe" width="560" height="315" src="https://www.youtube.com/embed/<%=@end_url%>" frameborder="0" allowfullscreen></iframe>
-    <div class="input_box">
-      <input type="text" name="#" value="<%= params[:link] %>">
-      <button type="button" name="button">Start!</button>
+    <div class="iframe_box">
+      <div class="searchVid">
+        <input type="text" name="#" value="<%= params[:link] %>">
+        <button type="button" name="button">Start!</button>
+      </div>
+      <iframe name="iframe1" width="560" height="315" src="https://www.youtube.com/embed/<%=@end_url%>" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="term_box">
+      <div class="search_term_box">
+        <form name="searchBox">
+          <input type="text" name="keyword" placeholder="Search terms here......">
+          <button type="button" onClick="searchFunction()">Search!</button>
+        </form>
+      </div>
+      <div class="scrolling_box">
+        <div class="time_list_box" id="script_list">
+          <ol>
+            <% @video.transcript.each do |text| %>
+              <li class="searchable" style="display:none">
+                <a href="https://www.youtube.com/embed/<%=@end_url%>?start=<%=text[0]%>&amp;autoplay=1" target="iframe1" onclick="document.getElementById('note_time').value = '<%= @video.seconds_to_time(text[0]) %>'" >
+                  <%=text[1]%>
+                </a>
+              </li>
+            <% end %>
+          </ol>
+          <script type="text/javascript">
+            function searchFunction() {
+              $(".searchable")
+                .hide()
+                .filter(":contains('" + $("input[name='keyword']").val() + "')")
+                .show();
+              }
+          </script>
+        </div>
+      </div>
     </div>
 </div>
-<div class="term_box">
-  <div class="search_term_box">
-    <form name="searchBox">
-      <input type="text" name="keyword" placeholder="Search terms here......">
-      <button type="button" onClick="searchFunction()">Search!</button>
-    </form>
+<div class="note_container">
+  <div class="notes_list">
+    <% Note.all.each do |note| %>
+      <strong><%= note.title %></strong>
+      <p><%= note.content %></p>
+    <% end %>
+    <iframe src="./logo1.png" width="1px" height="1px"></iframe>
   </div>
-  <div class="scrolling_box">
-    <div class="time_list_box" id="script_list">
-      <ol>
-        <% @video.transcript.each do |text| %>
-          <li class="searchable" style="display:none"><a href="https://www.youtube.com/embed/<%=@end_url%>?start=<%=text[0]%>&amp;autoplay=1" target="iframe" ><%=text[1]%></a></li>
-        <% end %>
-      </ol>
-      <script type="text/javascript">
-      function searchFunction() {
-        $(".searchable")
-            .hide()
-            .filter(":contains('" + $("input[name='keyword']").val() + "')")
-            .show();
-      }
-      </script>
-    </div>
+  <div class="note_box">
+    <%= form_tag({:controller => "notes", :action => "create"}, :remote => true, multipart: true, :target => "iframe2") do %>
+      <%= text_field_tag :name, nil, placeholder: "Create or select group...."%><br>
+      <%= collection_select :group, :id, Group.all, :id, :name %>
+      <%= text_field_tag :title, nil, id: "note_time", value: "Time" %>
+      <%= text_field_tag :content, nil, id: "note_text" %>
+      <%= submit_tag "Create" %>
+    <% end %>
   </div>
 </div>

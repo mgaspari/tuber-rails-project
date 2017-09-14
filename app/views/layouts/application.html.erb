@@ -3,12 +3,25 @@
   <head>
     <title>YoutubeCaptionSearchLearningTool</title>
     <%= csrf_meta_tags %>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+        $(document).ready(function() { $("#group_list").select2(); });
+
+        $(document).ready(function(){
+          $(".close_form").click(function(){
+              $("#group_form").hide();
+          });
+
+          $("#show_group_form_btn").click(function(){
+              $("#group_form").show();
+              event.preventDefault();
+          });
+        });
+    </script>
   </head>
 
   <body>
