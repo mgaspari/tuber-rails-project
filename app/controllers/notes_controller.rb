@@ -6,7 +6,6 @@ class NotesController < ApplicationController
   end
 
   def create
-    byebug
     Note.create(title: params[:title], content: params[:content], video_id: session[:vid_id])
     render 'blank'
   end
