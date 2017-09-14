@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/notes/new/:time', to: 'notes#new'
 
   post '/notes', to: 'notes#create'
+
+  post '/search_users', to: 'users#search'
 end
- 
