@@ -44,7 +44,7 @@ li {
         width: 450px;
         height: 35px;
         border-radius: 8px;
-        color: #61F73F;
+        color: black;
         font-size: 20px;
       }
 
@@ -54,7 +54,7 @@ li {
         height: 39px;
         border-radius: 8px;
         color: white;
-        background-color: #61F73F;
+        background-color: #717D7E;
         font-size: 20px;
       }
 
@@ -90,7 +90,7 @@ li {
           width: 440px;
           height: 35px;
           border-radius: 8px;
-          color: #61F73F;
+          color: black;
           font-size: 20px;
         }
 
@@ -104,7 +104,7 @@ li {
         }
 
         .searchVid button:hover {
-          background-color: #ff007b;
+          background-color: #D35400;
         }
 
     .term_box {
@@ -132,7 +132,7 @@ li {
             width: 79%;
             height: 27px;
             border-radius: 8px;
-            color: #61F73F;
+            color: black;
             font-size: 16px;
           }
 
@@ -141,12 +141,12 @@ li {
             height: 30px;
             border-radius: 8px;
             color: white;
-            background-color: #61F73F;
+            background-color: #717D7E;
             font-size: 16px;
           }
 
           .search_term_box button:hover {
-            background-color: #ff007b;
+            background-color: #D35400;
           }
 
         .scrolling_box {
@@ -160,7 +160,7 @@ li {
           display: flex;
           flex-direction: column;
           color: white;
-          background-color: #ff007b;
+          background-color: #f2f2f2;
         }
 
             .time_list_box {
@@ -168,8 +168,8 @@ li {
               height: 80%;
             }
 
-              .time_list_box ol li, a{
-                margin: 5px 0 5px 0;
+              .time_list_box ol li{
+                margin-bottom: 35px;
               }
 
 .note_container {
@@ -184,7 +184,7 @@ li {
     .notes_list {
       width: 480px;
       height: 390px;
-      background-color: #61F73F;
+      background-color: #f2f2f2;
       border-radius: 8px;
     }
 
@@ -218,7 +218,7 @@ li {
           width: 300px;
           height: 27px;
           border-radius: 8px;
-          color: #61F73F;
+          color: black;
           font-size: 16px;
         }
 
@@ -226,7 +226,7 @@ li {
           width: 160px;
           height: 29px;
           border-radius: 8px;
-          color: #ff007b;
+          color: #D35400;
           font-size: 16px;
         }
 

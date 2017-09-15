@@ -1,14 +1,49 @@
-
 <div class = "new_form">
-  <h1 id = "create_tag">Create An Account</h1>
-<%=form_for @user do |t|%>
-<%=t.text_field :first_name, placeholder: "First Name:" %><br>
-<%=t.text_field :last_name, placeholder: "Last Name: "%><br>
-<%=t.text_field :username, placeholder: "Username: "%><br>
-<%=t.password_field :password, placeholder: "Password: "%><br>
-<%=t.password_field :password_confirmation, placeholder: "Password Confirmation: "%><br>
-<%=t.submit%>
-<%end%>
-<div id="facebook"><%= link_to('Signup with Facebook!', '/auth/facebook') %></div>
-
- </div>
+  <div class="signup_box">
+    <h1 id = "create_tag">Create An Account</h1>
+    <%=form_for @user do |t|%>
+      <%=t.text_field :first_name, placeholder: "First Name:" %><br>
+      <%=t.text_field :last_name, placeholder: "Last Name: "%><br>
+      <%=t.text_field :username, placeholder: "Username: "%><br>
+      <%=t.password_field :password, placeholder: "Password: "%><br>
+      <%=t.password_field :password_confirmation, placeholder: "Password Confirmation: "%><br>
+      <%=t.submit%>
+    <%end%>
+    <div id="facebook">
+      <%= link_to('Signup with Facebook!', '/auth/facebook') %>
+    </div>
+  </div>
+  <div class="signup_box">
+    <div class="package">
+      <h1>Standard</h1>
+      <hr>
+      <h3>$ 900 per month</h3><br>
+      <p>The standard package will allow you to:</p>
+      <ul>
+        <li>Search Captions</li>
+        <li>Save Captions</li>
+        <li>Take Notes</li>
+      </ul>
+      <hr>
+        <input type="checkbox">Premium $900 per month<br>
+      <img src="../payment.png" >
+    </div>
+  </div>
+  <div class="signup_box">
+    <div class="package">
+      <h1>Premium</h1>
+      <hr>
+      <h3>$ 2300 per month</h3><br>
+      <p>The Premium package will allow you to:</p>
+      <ul>
+        <li>Search Captions</li>
+        <li>Save Captions</li>
+        <li>Take Notes</li>
+        <li>Change Button Color</li>
+      </ul>
+      <hr>
+        <label><input type="checkbox">Premium $2300 per month</label>
+      <img src="../payment.png" >
+    </div>
+  </div>
+</div>

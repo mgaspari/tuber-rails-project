@@ -10,9 +10,9 @@
 <div>
   <ul>
     <% @notes = Video.find(session[:vid_id]).notes %>
-    <% sleep(0.5) %>
+    <% sleep(0.7) %>
     <% @notes.each do |note| %>
-      <li><%= note.title %><%= note.content %></li>
+      <li style="list-style:none;"><%= note.title %> : <%= note.content %></li>
     <% end %>
   </ul>
 </div>
