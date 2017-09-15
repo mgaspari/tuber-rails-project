@@ -1,8 +1,17 @@
-<% @groups.each do |group|%>
-  <h2><%= group.name %><h2>
-  <ul>
-  <%group.notes.each do |note|%>
-  <li> <%= note.value %> <%=note.content%></li>
-  </ul>
+<div class="group_wrapper">
+  <div class="user_name_box">
+    <h1><%= @user.full_name %></h1>
+  </div>
+  <% @groups.each do |group|%>
+    <div class="group_box">
+      <h2><%= group.name %><h2>
+      <hr>
+      <br>
+      <ul>
+        <%group.notes.uniq.each do |note|%>
+          <li><%= link_to "#{note.title} : #{note.content}", videos_path(link: note.video.link), method: :post %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
-  <% end %>
+</div>

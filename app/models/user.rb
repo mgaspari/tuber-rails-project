@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :username, uniqueness: true
 
+  def full_name
+    (self.first_name + " " + self.last_name).titleize
+  end
+
 
   def scraper
     page = Nokogiri::HTML(open("https://www.youtube.com/watch?v=FOt1dwWRLGk"))

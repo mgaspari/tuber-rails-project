@@ -1,0 +1,20 @@
+<%= render 'tubing' %>
+<div class="note_container">
+  <div class="notes_list">
+    <iframe name="iframe2" src="static" width="480px" height="390px"></iframe>
+  </div>
+  <div class="note_box">
+    <%= form_tag({:controller => "notes", :action => "create"}, :remote => true, multipart: true, :target => "iframe2") do %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <div class="note_name_select">
+        <%= text_field_tag :name, nil, placeholder: "Create or select group...."%>
+        <%= collection_select :group, :id, Group.all, :id, :name %>
+      </div>
+      <div class="time_content">
+        <%= text_field_tag :title, nil, id: "note_time", value: "Time" %>
+        <%= text_field_tag :content, nil, id: "note_text" %>
+      </div>
+      <input type="submit" value="Create" onclick="document.getElementsByName('iframe2')[0].contentWindow.location.reload();">
+    <% end %>
+  </div>
+</div>

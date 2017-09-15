@@ -2,11 +2,19 @@
     <div class="iframe_box">
       <img src="../logo9.png">
     </div>
+    <div class="loading_box">
+      <img src="../loading.gif">
+    </div>
     <div class="search_box">
-      <%= form_tag({:controller => "videos", :action => "create"}, :method => "post") do %>
+      <%= form_tag('/videos') do %>
       <%= text_field_tag :link, nil, placeholder: 'Enter youtube url...' %>
-      <%= submit_tag "Search!"%>
+      <input type="submit" value="Search!" onclick="trump()" >
       <%end%>
+      <script type="text/javascript">
+        function trump(){
+          document.getElementsByClassName("iframe_box")[0].style.display='none'
+          document.getElementsByClassName("loading_box")[0].style.display='block'
+        }
+      </script>
     </div>
   </div>
- 

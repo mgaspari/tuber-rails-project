@@ -1,9 +1,9 @@
 <div class="video_box">
     <div class="iframe_box">
       <div class="searchVid">
-        <%= form_tag({:controller => "videos", :action => "tubing"}, :method => "get") do %>
-        <%= text_field_tag :link, nil, value: params[:link] %>
-        <%= submit_tag "Search!"%>
+        <%= form_tag('/videos') do %>
+          <%= text_field_tag :link, nil, value: session[:vid_url] %>
+          <%= submit_tag "Search!"%>
         <%end%>
       </div>
       <iframe name="iframe1" width="560" height="315" src="https://www.youtube.com/embed/<%=@end_url%>" frameborder="0" allowfullscreen></iframe>
@@ -37,22 +37,4 @@
         </div>
       </div>
     </div>
-</div>
-<div class="note_container">
-  <div class="notes_list">
-    <iframe name="iframe2" src="static" width="480px" height="390px"></iframe>
-  </div>
-  <div class="note_box">
-    <%= form_tag({:controller => "notes", :action => "create"}, :remote => true, multipart: true, :target => "iframe2") do %>
-      <div class="note_name_select">
-        <%= text_field_tag :name, nil, placeholder: "Create or select group...."%>
-        <%= collection_select :group, :id, Group.all, :id, :name %>
-      </div>
-      <div class="time_content">
-        <%= text_field_tag :title, nil, id: "note_time", value: "Time" %>
-        <%= text_field_tag :content, nil, id: "note_text" %>
-      </div>
-      <input type="submit" value="Create" onclick="document.getElementsByName('iframe2')[0].contentWindow.location.reload();">
-    <% end %>
-  </div>
 </div>

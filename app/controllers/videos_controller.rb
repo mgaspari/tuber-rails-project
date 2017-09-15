@@ -1,17 +1,8 @@
 class VideosController < ApplicationController
+
   def index
 
   end
-
-  # def create
-  #   @video = Video.new(video_params)
-  #   if @video.save
-  #     render :tubing
-  #   else
-  #     #need to add message to user
-  #     render :tubing
-  #   end
-  # end
 
   def tubing
     @video = Video.new
@@ -27,6 +18,11 @@ class VideosController < ApplicationController
         end
       end
       @end_url = session[:vid_url].split("v=")[1].split("&")[0]
+      if session[:id]
+        render 'in_home'
+      else
+        render 'out_home'
+      end
     else
       redirect_to videos_path
     end
@@ -34,7 +30,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.create(link: params[:link])
+    @video = Video.find_or_create_by(link: params[:link])
     if @video
       session[:vid_id] = @video.id
       session[:vid_url] = params[:link]

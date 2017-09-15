@@ -33,13 +33,15 @@
         </div>
 
         <div class="search_bar">
-          <%= form_tag "/search_users", method: 'POST'%>
+          <%= form_tag "/search_users", method: 'POST' do%>
           <input type="text" name="user[search]" placeholder="Search..">
           <%=submit_tag "Search", id: "search_bar_enter"%>
+          <% end %>
         </div>
 
         <div class="logout_login_signup_box">
           <% if session[:id] %>
+          <button><%= link_to "Notes", user_path(session[:id]) %></button>
             <%= button_to "Logout", logout_path%>
           <% else %>
             <button><%= link_to "Signup", signup_path%></button>
